@@ -1,761 +1,831 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume - Fernando Hasiholan PE</title>
-    <!-- Tailwind CSS for modern styling (BUTUH INTERNET) -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome for icons (BUTUH INTERNET) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts (BUTUH INTERNET) -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            -webkit-print-color-adjust: exact;
-        }
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Resume - Fernando Hasiholan PE</title>
+        <!-- Tailwind CSS for modern styling (BUTUH INTERNET) -->
+        <script src="https://cdn.tailwindcss.com"></script>
+        <!-- Font Awesome for icons (BUTUH INTERNET) -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <!-- Google Fonts (BUTUH INTERNET) -->
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
         
-        /* Background Screen Only - POLOS (Solid) tanpa pattern */
-        @media screen {
+        <style>
             body {
-                background-color: #e2e8f0; /* Solid Slate Color */
-            }
-        }
-        
-        /* Specific styling for printing (Save as PDF) */
-        @media print {
-            body {
-                background: white;
-            }
-            .no-print {
-                display: none !important;
-            }
-            #certificate-view, #project-view {
-                display: none !important;
-            }
-            #resume-view {
-                display: flex !important;
-            }
-            .shadow-2xl, .shadow-sm, .shadow-md, .shadow-lg {
-                box-shadow: none !important;
-            }
-            .container-resume {
-                margin: 0;
-                width: 100%;
-                max-width: 100%;
-                border: none;
-            }
-            main {
-                background-color: white !important;
-                padding: 0 !important;
-            }
-            /* Force background colors to print */
-            .print-bg-blue {
-                background-color: #1e3a8a !important; /* Blue-900 */
-                color: white !important;
-                -webkit-print-color-adjust: exact; 
-                print-color-adjust: exact;
-            }
-             .print-bg-light {
-                background-color: #eff6ff !important; /* Blue-50 */
+                font-family: 'Inter', sans-serif;
                 -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
             }
-            .text-white-print {
-                color: white !important;
-            }
-            .print-border-none {
-                border: none !important;
-            }
-            .print-text-blue {
-                color: #1e40af !important; /* blue-800 */
-            }
-            /* Hide links underline in print */
-            a {
-                text-decoration: none !important;
-                color: inherit !important;
-            }
-        }
-    </style>
-</head>
-<body class="text-slate-800 relative bg-slate-200">
-
-    <!-- Floating Print Button (Visible only on Resume View) -->
-    <div id="print-btn" class="fixed bottom-6 right-6 no-print z-50 transition-opacity duration-300">
-        <button onclick="window.print()" class="bg-blue-900 hover:bg-blue-800 text-white font-bold py-3 px-6 rounded-full shadow-lg transition duration-300 flex items-center gap-2 transform hover:scale-105">
-            <i class="fas fa-print"></i> Save as PDF
-        </button>
-    </div>
-
-    <!-- Background Decorative Elements -->
-    <div class="fixed top-20 left-10 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob no-print -z-10"></div>
-    <div class="fixed bottom-20 right-10 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000 no-print -z-10"></div>
-
-    <div class="min-h-screen flex justify-center items-start py-10 px-4">
-        
-        <!-- VIEW 1: MAIN RESUME CONTAINER -->
-        <div id="resume-view" class="container-resume bg-white w-full max-w-5xl shadow-2xl rounded-xl overflow-hidden flex flex-col md:flex-row relative z-10 border border-slate-300 transition-all duration-500">
             
-            <!-- SIDEBAR -->
-            <aside class="w-full md:w-1/3 bg-slate-900 text-white p-8 relative overflow-hidden flex flex-col print-bg-blue">
-                <!-- Subtle pattern overlay -->
-                <div class="absolute inset-0 opacity-5 pointer-events-none" style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 20px 20px;"></div>
+            /* Background Screen Only - POLOS (Solid) tanpa pattern */
+            @media screen {
+                body {
+                    background-color: #e2e8f0; /* Solid Slate Color */
+                }
+            }
+            
+            /* Specific styling for printing (Save as PDF) */
+            @media print {
+                body {
+                    background: white;
+                }
+                .no-print {
+                    display: none !important;
+                }
+                #certificate-view, #project-view, #closing-project-view {
+                    display: none !important;
+                }
+                #resume-view {
+                    display: flex !important;
+                }
+                .shadow-2xl, .shadow-sm, .shadow-md, .shadow-lg {
+                    box-shadow: none !important;
+                }
+                .container-resume {
+                    margin: 0;
+                    width: 100%;
+                    max-width: 100%;
+                    border: none;
+                }
+                main {
+                    background-color: white !important;
+                    padding: 0 !important;
+                }
+                /* Force background colors to print */
+                .print-bg-blue {
+                    background-color: #1e3a8a !important; /* Blue-900 */
+                    color: white !important;
+                    -webkit-print-color-adjust: exact; 
+                    print-color-adjust: exact;
+                }
+                .print-bg-light {
+                    background-color: #eff6ff !important; /* Blue-50 */
+                    -webkit-print-color-adjust: exact;
+                    print-color-adjust: exact;
+                }
+                .text-white-print {
+                    color: white !important;
+                }
+                .print-border-none {
+                    border: none !important;
+                }
+                .print-text-blue {
+                    color: #1e40af !important; /* blue-800 */
+                }
+                /* Hide links underline in print */
+                a {
+                    text-decoration: none !important;
+                    color: inherit !important;
+                }
+            }
+        </style>
+    </head>
+    <body class="text-slate-800 relative bg-slate-200">
+
+        <!-- Floating Print Button (Visible only on Resume View) -->
+        <div id="print-btn" class="fixed bottom-6 right-6 no-print z-50 transition-opacity duration-300">
+            <button onclick="window.print()" class="bg-blue-900 hover:bg-blue-800 text-white font-bold py-3 px-6 rounded-full shadow-lg transition duration-300 flex items-center gap-2 transform hover:scale-105">
+                <i class="fas fa-print"></i> Save as PDF
+            </button>
+        </div>
+
+        <!-- Background Decorative Elements -->
+        <div class="fixed top-20 left-10 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob no-print -z-10"></div>
+        <div class="fixed bottom-20 right-10 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000 no-print -z-10"></div>
+
+        <div class="min-h-screen flex justify-center items-start py-10 px-4">
+            
+            <!-- VIEW 1: MAIN RESUME CONTAINER -->
+            <div id="resume-view" class="container-resume bg-white w-full max-w-5xl shadow-2xl rounded-xl overflow-hidden flex flex-col md:flex-row relative z-10 border border-slate-300 transition-all duration-500">
                 
-                <div class="relative z-10">
-                    <!-- Profile Photo Area -->
-                    <div class="flex justify-center mb-8">
-                        <div class="relative w-40 h-40 group">
-                            <!-- 1. INISIAL (Fallback) -->
-                            <div id="initials-fallback" class="absolute inset-0 w-full h-full rounded-full bg-blue-600 flex items-center justify-center text-5xl font-bold border-4 border-white shadow-md z-0">
-                                FH
-                            </div>
-                            <!-- 2. FOTO PROFIL -->
-                            <img 
-                                src="Photo Linkedin.jpg" 
-                                alt="Fernando Hasiholan" 
-                                class="absolute inset-0 w-full h-full rounded-full border-4 border-white shadow-lg object-cover z-10 transition duration-300 group-hover:scale-105"
-                                onerror="this.style.display='none'"
-                            >
-                        </div>
-                    </div>
+                <!-- SIDEBAR -->
+                <aside class="w-full md:w-1/3 bg-slate-900 text-white p-8 relative overflow-hidden flex flex-col print-bg-blue">
+                    <!-- Subtle pattern overlay -->
+                    <div class="absolute inset-0 opacity-5 pointer-events-none" style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 20px 20px;"></div>
                     
-                    <p class="text-xs text-slate-500 text-center mb-6 italic no-print">
-                                            </p>
-
-                    <!-- Contact Info -->
-                    <div class="space-y-5 mb-10">
-                        <h3 class="text-blue-400 font-bold uppercase tracking-wider text-xs border-b border-slate-700 pb-2 mb-4">Contact Details</h3>
-                        
-                        <!-- Email -->
-                        <div class="flex items-start gap-3 text-slate-300 hover:text-white transition group">
-                            <div class="w-8 h-8 rounded bg-slate-800 flex items-center justify-center group-hover:bg-blue-600 transition duration-300 flex-shrink-0 border border-slate-700">
-                                <i class="fas fa-envelope text-sm"></i>
+                    <div class="relative z-10">
+                        <!-- Profile Photo Area -->
+                        <div class="flex justify-center mb-8">
+                            <div class="relative w-40 h-40 group">
+                                <!-- 1. INISIAL (Fallback) -->
+                                <div id="initials-fallback" class="absolute inset-0 w-full h-full rounded-full bg-blue-600 flex items-center justify-center text-5xl font-bold border-4 border-white shadow-md z-0">
+                                    FH
+                                </div>
+                                <!-- 2. FOTO PROFIL -->
+                                <img 
+                                    src="Photo Linkedin.jpg" 
+                                    alt="Fernando Hasiholan" 
+                                    class="absolute inset-0 w-full h-full rounded-full border-4 border-white shadow-lg object-cover z-10 transition duration-300 group-hover:scale-105"
+                                    onerror="this.style.display='none'"
+                                >
                             </div>
-                            <div class="flex flex-col gap-1 overflow-hidden">
-                                <a href="mailto:fernandohasiholan@yahoo.com" class="text-sm truncate hover:underline hover:text-blue-300 transition text-white-print">fernandohasiholan@yahoo.com</a>
-                                <a href="mailto:fernandohasiholan11@gmail.com" class="text-sm truncate hover:underline hover:text-blue-300 transition text-white-print">fernandohasiholan11@gmail.com</a>
-                            </div>
-                        </div>
-
-                        <!-- Phone -->
-                        <div class="flex items-center gap-3 text-slate-300 hover:text-white transition group">
-                            <div class="w-8 h-8 rounded bg-slate-800 flex items-center justify-center group-hover:bg-blue-600 transition duration-300 flex-shrink-0 border border-slate-700">
-                                <i class="fas fa-phone text-sm"></i>
-                            </div>
-                            <a href="tel:+628118490120" class="text-sm hover:text-blue-300 transition text-white-print">+62 811 8490 120</a>
-                        </div>
-
-                        <!-- LinkedIn -->
-                        <div class="flex items-center gap-3 text-slate-300 hover:text-white transition group">
-                            <div class="w-8 h-8 rounded bg-slate-800 flex items-center justify-center group-hover:bg-blue-600 transition duration-300 flex-shrink-0 border border-slate-700">
-                                <i class="fab fa-linkedin-in text-sm"></i>
-                            </div>
-                            <a href="https://www.linkedin.com/in/fernando-hasiholan-se-ctt-cptt-303735388/" target="_blank" class="text-sm hover:text-blue-300 transition text-white-print truncate w-full" title="View LinkedIn Profile">
-                                Fernando Hasiholan
-                            </a>
-                        </div>
-
-                        <!-- Location -->
-                        <div class="flex items-center gap-3 text-slate-300 hover:text-white transition group">
-                            <div class="w-8 h-8 rounded bg-slate-800 flex items-center justify-center group-hover:bg-blue-600 transition duration-300 flex-shrink-0 border border-slate-700">
-                                <i class="fas fa-map-marker-alt text-sm"></i>
-                            </div>
-                            <span class="text-sm text-white-print">Jakarta, Bekasi, Indonesia</span>
-                        </div>
-                    </div>
-
-                    <!-- Education -->
-                    <div class="mb-10">
-                        <h3 class="text-blue-400 font-bold uppercase tracking-wider text-xs border-b border-slate-700 pb-2 mb-4">Education</h3>
-                        <div class="mb-4">
-                            <div class="font-bold text-white text-lg leading-tight text-white-print">Bachelor's Degree in Accounting</div>
-                            <div class="text-blue-200 text-sm font-medium mt-1">Sekolah Tinggi Ilmu Ekonomi Indonesia</div>
-                            <div class="text-slate-500 text-xs italic mt-1 text-slate-300">2012 - 2015</div>
-                        </div>
-                    </div>
-
-                    <!-- Certifications -->
-                    <div class="mb-10">
-                        <h3 class="text-blue-400 font-bold uppercase tracking-wider text-xs border-b border-slate-700 pb-2 mb-4">Certifications</h3>
-                        <ul class="space-y-4 text-sm text-slate-300">
-                            
-                            <!-- PSAK -->
-                            <li class="flex items-start gap-3 group">
-                                <i class="fas fa-check-circle text-blue-400 mt-1 group-hover:text-blue-300 transition"></i>
-                                <div>
-                                    <button onclick="openCertificate('psak professional fha.pdf')" class="text-left group/link focus:outline-none">
-                                        <div class="flex items-center gap-2">
-                                            <strong class="text-white block group-hover/link:text-blue-200 group-hover/link:underline transition leading-snug text-white-print">
-                                                PSAK for Professional
-                                            </strong>
-                                            <i class="fas fa-arrow-right text-[10px] text-slate-500 group-hover/link:text-blue-300 transition no-print bg-slate-800 p-1 rounded-full w-5 h-5 flex items-center justify-center"></i>
-                                        </div>
-                                    </button>
-                                    <span class="text-xs text-slate-400 text-slate-300 block mt-0.5">Ikatan Akuntan Indonesia (2024)</span>
-                                </div>
-                            </li>
-
-                            <!-- Brevet A&B -->
-                            <li class="flex items-start gap-3 group">
-                                <i class="fas fa-book text-yellow-500 mt-1 group-hover:text-yellow-400 transition"></i>
-                                <div class="w-full">
-                                    <strong class="text-white block mb-1 group-hover:text-yellow-100 transition text-white-print">Brevet A&B</strong>
-                                    <div class="flex flex-col gap-2 border-l-2 border-slate-700 pl-3">
-                                        <div class="flex flex-col">
-                                            <button onclick="openCertificate('sertifikat_Fernando Hasiholan P E_AB.pdf')" class="text-left group/link focus:outline-none" title="Click to view certificate">
-                                                <div class="flex items-center gap-1">
-                                                    <span class="text-xs text-slate-400 text-slate-300 group-hover/link:text-blue-200 group-hover/link:underline transition">
-                                                        Lembaga Manajemen Formasi (2024)
-                                                    </span>
-                                                    <i class="fas fa-arrow-right text-[8px] text-slate-500 group-hover/link:text-blue-300 transition no-print bg-slate-800 p-0.5 rounded-full w-3 h-3 flex items-center justify-center"></i>
-                                                </div>
-                                            </button>
-                                            <span class="text-xs font-bold text-green-400">Score: A</span>
-                                        </div>
-                                        <div class="flex flex-col">
-                                            <button onclick="openCertificate('Brevet A&B STEI.pdf')" class="text-left group/link focus:outline-none" title="Click to view certificate">
-                                                <div class="flex items-center gap-1">
-                                                    <span class="text-xs text-slate-400 text-slate-300 group-hover/link:text-blue-200 group-hover/link:underline transition">
-                                                        Sekolah Tinggi Ilmu Ekonomi Indonesia Jakarta (2016)
-                                                    </span>
-                                                    <i class="fas fa-arrow-right text-[8px] text-slate-500 group-hover/link:text-blue-300 transition no-print bg-slate-800 p-0.5 rounded-full w-3 h-3 flex items-center justify-center"></i>
-                                                </div>
-                                            </button>
-                                            <span class="text-xs font-bold text-yellow-500">Score: C</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-
-                            <!-- Brevet C -->
-                            <li class="flex items-start gap-3 group">
-                                <i class="fas fa-book text-yellow-500 mt-1 group-hover:text-yellow-400 transition"></i>
-                                <div>
-                                    <button onclick="openCertificate('sertifikat_Fernando Hasiholan P E_C.pdf')" class="text-left group/link focus:outline-none">
-                                        <div class="flex items-center gap-2">
-                                            <strong class="text-white block group-hover/link:text-blue-200 group-hover/link:underline transition leading-snug text-white-print">
-                                                Brevet C
-                                            </strong>
-                                            <i class="fas fa-arrow-right text-[10px] text-slate-500 group-hover/link:text-blue-300 transition no-print bg-slate-800 p-1 rounded-full w-5 h-5 flex items-center justify-center"></i>
-                                        </div>
-                                    </button>
-                                    <span class="text-xs text-slate-400 text-slate-300 block mt-0.5">Lembaga Manajemen Formasi (2024)</span>
-                                    <span class="text-xs font-bold text-green-400">Score: A</span>
-                                </div>
-                            </li>
-
-                            <!-- CTT -->
-                            <li class="flex items-start gap-3 group">
-                                <i class="fas fa-certificate text-yellow-500 mt-1 group-hover:text-yellow-400 transition"></i>
-                                <div>
-                                    <button onclick="openCertificate('CTT_lengkap.pdf')" class="text-left group/link focus:outline-none">
-                                        <div class="flex items-center gap-2">
-                                            <strong class="text-white block group-hover/link:text-yellow-100 group-hover/link:underline transition leading-snug text-white-print">
-                                                Certified Tax Technician (CTT)
-                                            </strong>
-                                            <i class="fas fa-arrow-right text-[10px] text-slate-500 group-hover/link:text-yellow-300 transition no-print bg-slate-800 p-1 rounded-full w-5 h-5 flex items-center justify-center"></i>
-                                        </div>
-                                    </button>
-                                    <span class="text-xs text-slate-400 text-slate-300 block mt-0.5">Asosiasi Teknisi Perpajakan Indonesia (ATPI)</span>
-                                </div>
-                            </li>
-
-                            <!-- CPTT -->
-                            <li class="flex items-start gap-3 group">
-                                <i class="fas fa-certificate text-yellow-500 mt-1 group-hover:text-yellow-400 transition"></i>
-                                <div>
-                                    <button onclick="openCertificate('CPTT_lengkap.pdf')" class="text-left group/link focus:outline-none">
-                                        <div class="flex items-center gap-2">
-                                            <strong class="text-white block group-hover/link:text-yellow-100 group-hover/link:underline transition leading-snug text-white-print">
-                                                Certified Professional Tax Technician (CPTT)
-                                            </strong>
-                                            <i class="fas fa-arrow-right text-[10px] text-slate-500 group-hover/link:text-yellow-300 transition no-print bg-slate-800 p-1 rounded-full w-5 h-5 flex items-center justify-center"></i>
-                                        </div>
-                                    </button>
-                                    <span class="text-xs text-slate-400 text-slate-300 block mt-0.5">Asosiasi Teknisi Perpajakan Indonesia (ATPI)</span>
-                                </div>
-                            </li>
-
-                            <!-- Transfer Pricing -->
-                            <li class="flex items-start gap-3 group">
-                                <i class="fas fa-check-circle text-blue-400 mt-1 group-hover:text-blue-300 transition"></i>
-                                <div>
-                                    <button onclick="openCertificate('masterclass_tpdoc_iai.pdf')" class="text-left group/link focus:outline-none">
-                                        <div class="flex items-center gap-2">
-                                            <strong class="text-white block group-hover/link:text-blue-100 group-hover/link:underline transition leading-snug text-white-print">
-                                                Transfer Pricing Masterclass
-                                            </strong>
-                                            <i class="fas fa-arrow-right text-[10px] text-slate-500 group-hover/link:text-blue-300 transition no-print bg-slate-800 p-1 rounded-full w-5 h-5 flex items-center justify-center"></i>
-                                        </div>
-                                    </button>
-                                    <span class="text-xs text-slate-400 text-slate-300 block mt-0.5">Ikatan Akuntan Indonesia (2025)</span>
-                                </div>
-                            </li>
-
-                            <!-- EF SET -->
-                            <li class="flex items-start gap-3 border-t border-slate-800 pt-3 mt-2 group">
-                                <i class="fas fa-language text-green-400 mt-1 group-hover:text-green-300 transition"></i>
-                                <div>
-                                    <button onclick="openCertificate('efset.pdf')" class="text-left group/link focus:outline-none">
-                                        <div class="flex items-center gap-2">
-                                            <strong class="text-white block group-hover/link:text-green-100 group-hover/link:underline transition text-white-print">
-                                                EF SET English Certificate
-                                            </strong>
-                                            <i class="fas fa-arrow-right text-[10px] text-slate-500 group-hover/link:text-green-300 transition no-print bg-slate-800 p-1 rounded-full w-5 h-5 flex items-center justify-center"></i>
-                                        </div>
-                                    </button>
-                                    <span class="text-xs text-slate-400 text-slate-300">C2 Proficient (Score 71/100)</span>
-                                </div>
-                            </li>
-                            
-                            <!-- MODERATOR -->
-                             <li class="flex items-start gap-3 group">
-                                <i class="fas fa-microphone text-green-400 mt-1 group-hover:text-green-300 transition"></i>
-                                <div>
-                                    <button onclick="openCertificate('Moderator - Pendidikan Profesional Berkelanjutan (PPL) - Kewajiban PPh Orang Pribadi di Indonesia.pdf')" class="text-left group/link focus:outline-none">
-                                        <div class="flex items-center gap-2">
-                                            <strong class="text-white block group-hover/link:text-green-100 group-hover/link:underline transition text-white-print leading-snug">
-                                                Moderator - Pendidikan Profesional Berkelanjutan (PPL)
-                                            </strong>
-                                            <i class="fas fa-arrow-right text-[10px] text-slate-500 group-hover/link:text-green-300 transition no-print bg-slate-800 p-1 rounded-full w-5 h-5 flex items-center justify-center"></i>
-                                        </div>
-                                    </button>
-                                    <span class="text-xs text-slate-300 block mt-1 italic">“Kewajiban PPh Orang Pribadi di Indonesia : Isu Terkini dan Tantangan Ke Depan”</span>
-                                    <span class="text-xs text-slate-400 text-slate-300 block mt-0.5">Ikatan Akuntan Indonesia (IAI) Wilayah Riau (2024)</span>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!-- Skills -->
-                    <div class="mb-10">
-                        <h3 class="text-blue-400 font-bold uppercase tracking-wider text-xs border-b border-slate-700 pb-2 mb-4">Professional Skills</h3>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="bg-slate-800 border border-slate-700 text-slate-200 px-3 py-1 rounded-md text-xs font-semibold hover:bg-blue-900 hover:text-white hover:border-blue-700 transition cursor-default">SAP</span>
-                            <span class="bg-slate-800 border border-slate-700 text-slate-200 px-3 py-1 rounded-md text-xs font-semibold hover:bg-blue-900 hover:text-white hover:border-blue-700 transition cursor-default">MYOB</span>
-                            <span class="bg-slate-800 border border-slate-700 text-slate-200 px-3 py-1 rounded-md text-xs font-semibold hover:bg-blue-900 hover:text-white hover:border-blue-700 transition cursor-default">Accurate</span>
-                            <span class="bg-slate-800 border border-slate-700 text-slate-200 px-3 py-1 rounded-md text-xs font-semibold hover:bg-blue-900 hover:text-white hover:border-blue-700 transition cursor-default">Orlansoft</span>
-                            <span class="bg-slate-800 border border-slate-700 text-slate-200 px-3 py-1 rounded-md text-xs font-semibold hover:bg-blue-900 hover:text-white hover:border-blue-700 transition cursor-default">Tax Compliance</span>
-                            <span class="bg-slate-800 border border-slate-700 text-slate-200 px-3 py-1 rounded-md text-xs font-semibold hover:bg-blue-900 hover:text-white hover:border-blue-700 transition cursor-default">Tax Planning</span>
-                            <span class="bg-slate-800 border border-slate-700 text-slate-200 px-3 py-1 rounded-md text-xs font-semibold hover:bg-blue-900 hover:text-white hover:border-blue-700 transition cursor-default">WHT, VAT & CIT</span>
-                            <span class="bg-slate-800 border border-slate-700 text-slate-200 px-3 py-1 rounded-md text-xs font-semibold hover:bg-blue-900 hover:text-white hover:border-blue-700 transition cursor-default">Financial Reporting</span>
-                            <span class="bg-slate-800 border border-slate-700 text-slate-200 px-3 py-1 rounded-md text-xs font-semibold hover:bg-blue-900 hover:text-white hover:border-blue-700 transition cursor-default">PSAK</span>
-                            <span class="bg-slate-800 border border-slate-700 text-slate-200 px-3 py-1 rounded-md text-xs font-semibold hover:bg-blue-900 hover:text-white hover:border-blue-700 transition cursor-default">IFRS</span>
-                            <span class="bg-slate-800 border border-slate-700 text-slate-200 px-3 py-1 rounded-md text-xs font-semibold hover:bg-blue-900 hover:text-white hover:border-blue-700 transition cursor-default">Risk Management</span>
-                        </div>
-                    </div>
-
-                    <!-- Languages -->
-                    <div>
-                        <h3 class="text-blue-400 font-bold uppercase tracking-wider text-xs border-b border-slate-700 pb-2 mb-4">Languages</h3>
-                        <div class="space-y-3 text-sm text-slate-300">
-                            <div>
-                                <div class="flex justify-between mb-1">
-                                    <span>Indonesian</span>
-                                    <span class="font-bold text-white text-white-print">Native</span>
-                                </div>
-                                <div class="w-full bg-slate-700 rounded-full h-1.5">
-                                    <div class="bg-blue-500 h-1.5 rounded-full" style="width: 100%"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between mb-1">
-                                    <span>English</span>
-                                    <span class="font-bold text-white text-white-print">Fluent (C2)</span>
-                                </div>
-                                <div class="w-full bg-slate-700 rounded-full h-1.5">
-                                    <div class="bg-green-500 h-1.5 rounded-full" style="width: 95%"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </aside>
-
-            <!-- MAIN CONTENT -->
-            <main class="w-full md:w-2/3 p-6 md:p-10 bg-slate-200 relative">
-                <div class="relative z-10 max-w-4xl mx-auto">
-                    <!-- Header -->
-                    <div class="print-bg-blue bg-blue-900 rounded-xl shadow-lg p-8 mb-6 flex flex-col justify-center text-white relative overflow-hidden">
-                        <div class="absolute top-0 right-0 w-32 h-32 bg-white opacity-5 rounded-full -mr-10 -mt-10"></div>
-                        <div class="absolute bottom-0 left-0 w-24 h-24 bg-white opacity-5 rounded-full -ml-10 -mb-10"></div>
-                        <div class="relative z-10">
-                            <h1 class="text-4xl md:text-5xl font-extrabold mb-2 tracking-tight text-white text-white-print">Fernando Hasiholan PE</h1>
-                            <div class="flex items-center gap-3 mt-2">
-                                <span class="h-px flex-1 bg-blue-700"></span>
-                                <h2 class="text-sm md:text-base text-blue-200 font-bold tracking-widest uppercase text-center">Finance, Accounting & Tax Professional</h2>
-                                <span class="h-px flex-1 bg-blue-700"></span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Summary -->
-                    <div class="print-bg-light bg-blue-50 rounded-xl shadow-sm p-8 mb-6 relative overflow-hidden border border-blue-100">
-                        <div class="flex items-center gap-3 mb-5 relative z-10">
-                            <div class="bg-blue-200 p-2.5 rounded-lg text-blue-900 shadow-sm">
-                                <i class="fas fa-user-tie text-xl"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-slate-800">Profile Summary</h3>
-                        </div>
-                        <p class="text-slate-700 leading-relaxed text-justify relative z-10">
-                            Finance, Accounting & Tax Professional with 10+ years in multinational logistics, resources, manufacturing, multinational leasing, property, and public firms. Certified CTT, CPTT, Brevet A&B, Brevet C, and PSAK for Professionals. Skilled in reporting, tax compliance, risk management, and leading teams to optimize processes.
-                        </p>
-                    </div>
-
-                    <!-- FEATURED PROJECT (New Section with Pipeline) -->
-                    <div class="bg-slate-50 rounded-xl shadow-sm p-8 mb-6 border border-blue-100 relative overflow-hidden">
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center gap-3">
-                                <div class="bg-blue-600 p-2.5 rounded-lg text-white shadow-md">
-                                    <i class="fas fa-laptop-code text-xl"></i>
-                                </div>
-                                <div>
-                                    <h3 class="text-lg font-bold text-slate-800 uppercase tracking-wide">Featured Project</h3>
-                                    <p class="text-sm text-blue-600 font-semibold">Transforming Manual Reconciliation: From Excel Limits to Python Automation</p>
-                                </div>
-                            </div>
-                            <button onclick="openProjectDetails()" class="bg-blue-900 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded-full shadow-lg transition duration-300 flex items-center gap-2 text-sm">
-                                View Project Details <i class="fas fa-arrow-right"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Work Experience -->
-                    <div class="bg-white rounded-xl shadow-md p-8 relative border border-slate-200">
-                        <div class="flex items-center gap-3 mb-8">
-                            <div class="bg-blue-50 p-2.5 rounded-lg text-blue-900 shadow-sm border border-blue-100">
-                                <i class="fas fa-briefcase text-xl"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-slate-800">Work Experience</h3>
-                        </div>
-
-                        <div class="relative border-l-2 border-blue-100 ml-3.5 space-y-12 pb-2">
-                            <!-- Job 1 -->
-                            <div class="pl-8 relative group">
-                                <div class="absolute -left-[9px] top-1.5 w-5 h-5 bg-blue-900 rounded-full border-4 border-blue-100 shadow-sm group-hover:scale-110 transition duration-300"></div>
-                                <div class="flex flex-col sm:flex-row justify-between sm:items-start mb-1">
-                                    <h4 class="text-lg font-bold text-slate-900 group-hover:text-blue-800 transition">Supervisor Accounting & Tax</h4>
-                                    <span class="bg-blue-50 text-blue-800 text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap mt-2 sm:mt-0 border border-blue-100">2022 - Present</span>
-                                </div>
-                                <div class="text-blue-600 font-semibold mb-3 text-sm">PT Seacon Bintang Sejahtera (A. P. Møller-Mærsk JV)</div>
-                                <ul class="list-none text-slate-600 space-y-2 text-sm ml-1">
-                                    <li class="flex items-start gap-3">
-                                        <i class="fas fa-check text-blue-500 text-xs mt-1.5"></i>
-                                        <span><strong>Team Leadership:</strong> Direct and mentor a high-performing team of 9 to 15 personnel SBS Teams (including interns), overseeing daily accounting operations, KPI monitoring, and workload distribution to ensure zero defect reporting.</span>
-                                    </li>
-                                    <li class="flex items-start gap-3">
-                                        <i class="fas fa-check text-blue-500 text-xs mt-1.5"></i>
-                                        <span>Led end-to-end accounting operations, including accurate COA reconciliation, Withholding Tax (WHT), and VAT calculations for a multinational logistics joint venture.</span>
-                                    </li>
-                                    <li class="flex items-start gap-3">
-                                        <i class="fas fa-check text-blue-500 text-xs mt-1.5"></i>
-                                        <span>Managed the full cycle of financial reporting, ensuring timely monthly and annual closing in accordance with PSAK and IFRS.</span>
-                                    </li>
-                                    <li class="flex items-start gap-3">
-                                        <i class="fas fa-check text-blue-500 text-xs mt-1.5"></i>
-                                        <span>Oversaw tax compliance strategies to minimize risk and acted as the key point of contact for external tax auditors.</span>
-                                    </li>
-                                    <li class="flex items-start gap-3">
-                                        <i class="fas fa-check text-blue-500 text-xs mt-1.5"></i>
-                                        <span>Implemented internal controls and optimized financial procedures within the ERP environment to enhance data integrity.</span>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <!-- Job 2 -->
-                            <div class="pl-8 relative group">
-                                <div class="absolute -left-[9px] top-1.5 w-5 h-5 bg-white rounded-full border-4 border-blue-200 shadow-sm group-hover:border-blue-400 transition duration-300"></div>
-                                <div class="flex flex-col sm:flex-row justify-between sm:items-start mb-1">
-                                    <h4 class="text-lg font-bold text-slate-900 group-hover:text-blue-800 transition">Senior Accounting Staff</h4>
-                                    <span class="bg-slate-50 text-slate-600 text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap mt-2 sm:mt-0 border border-slate-100">2020 - 2022</span>
-                                </div>
-                                <div class="text-slate-600 font-semibold mb-3 text-sm">PT Rajawali Anugrah Resources</div>
-                                <ul class="list-none text-slate-600 space-y-2 text-sm ml-1">
-                                    <li class="flex items-start gap-3">
-                                        <span class="text-blue-300 mt-0 text-lg">•</span>
-                                        <span><strong>Outsourcing Financial Operations:</strong> Led a team of 2 Staff in managing complex payroll processing for a diverse portfolio of outsourcing clients, including major Tier-1 accounts such as PT. TELEKOMUNIKASI INDONESIA, Tbk , PT. NYK LINE INDONESIA, PT. OCEAN NETWORK EXPRESS INDONESIA (ONE), PT. BALI TOWERINDO SENTRA, Tbk , etc.</span>
-                                    </li>
-                                    <li class="flex items-start gap-3">
-                                        <span class="text-blue-300 mt-0 text-lg">•</span>
-                                        <span><strong>Revenue Assurance & Billing:</strong> Oversaw the end-to-end invoicing cycle for these key clients. Ensured 100% accuracy in payroll to invoice reconciliation (cost recharge + management fees) to prevent revenue leakage and ensure timely account receivables.</span>
-                                    </li>
-                                    <li class="flex items-start gap-3">
-                                        <span class="text-blue-300 mt-0 text-lg">•</span>
-                                        <span><strong>Compliance & Reporting:</strong> Prepared detailed monthly financial statements and tax filings, ensuring compliance with diverse client contract requirements.</span>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <!-- Job 3 -->
-                            <div class="pl-8 relative group">
-                                <div class="absolute -left-[9px] top-1.5 w-5 h-5 bg-white rounded-full border-4 border-blue-200 shadow-sm group-hover:border-blue-400 transition duration-300"></div>
-                                <div class="flex flex-col sm:flex-row justify-between sm:items-start mb-1">
-                                    <h4 class="text-lg font-bold text-slate-900 group-hover:text-blue-800 transition">Senior Accounting & Tax</h4>
-                                    <span class="bg-slate-50 text-slate-600 text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap mt-2 sm:mt-0 border border-slate-100">2019 - 2020</span>
-                                </div>
-                                <div class="text-slate-600 font-semibold mb-3 text-sm">PT Krida Jaringan Nusantara, Tbk</div>
-                                <div class="text-slate-500 text-xs mb-2 italic">Reported directly to the Finance Director & Corporate Secretary, acting as the key person for statutory compliance and financial control.</div>
-                                <ul class="list-none text-slate-600 space-y-2 text-sm ml-1">
-                                    <li class="flex items-start gap-3">
-                                        <span class="text-blue-300 mt-0 text-lg">•</span>
-                                        <span><strong>High Stakes Compliance (XBRL Specialist):</strong> Exclusively managed the end to end statutory reporting to the Financial Services Authority (OJK). Executed full cycle reporting independently, including complex XBRL submissions, ensuring zero regulatory penalties for the public entity.</span>
-                                    </li>
-                                    <li class="flex items-start gap-3">
-                                        <span class="text-blue-300 mt-0 text-lg">•</span>
-                                        <span><strong>Strategic Tax Defense:</strong> Successfully led the resolution of SP2DK inquiries and Tax Audits for the holding company and its subsidiaries, acting as the primary representative to the Tax Office (KPP) to mitigate potential assessments.</span>
-                                    </li>
-                                    <li class="flex items-start gap-3">
-                                        <span class="text-blue-300 mt-0 text-lg">•</span>
-                                        <span><strong>Group Wide Compliance Leadership:</strong> Directed the workflow of 4 support staff in completing Annual Corporate Tax Returns (SPT Badan) for over 50 legal entities, ensuring 100% compliance across the entire business group.</span>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <!-- Job 4 -->
-                            <div class="pl-8 relative group">
-                                <div class="absolute -left-[9px] top-1.5 w-5 h-5 bg-white rounded-full border-4 border-blue-200 shadow-sm group-hover:border-blue-400 transition duration-300"></div>
-                                <div class="flex flex-col sm:flex-row justify-between sm:items-start mb-1">
-                                    <h4 class="text-lg font-bold text-slate-900 group-hover:text-blue-800 transition">Supervisor Accounting</h4>
-                                    <span class="bg-slate-50 text-slate-600 text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap mt-2 sm:mt-0 border border-slate-100">2018 - 2019</span>
-                                </div>
-                                <div class="text-slate-600 font-semibold mb-1 text-sm">PT Poetra Mesti Makmur</div>
-                                <div class="text-slate-500 text-xs mb-3 italic">Manufacture Company - Thermal Paper</div>
-                                <ul class="list-none text-slate-600 space-y-2 text-sm ml-1">
-                                    <li class="flex items-start gap-3">
-                                        <span class="text-blue-300 mt-0 text-lg">•</span>
-                                        <span>Supervised the daily accounting team (AP, AR, GL) of 2 staff, ensuring timely and accurate work.</span>
-                                    </li>
-                                    <li class="flex items-start gap-3">
-                                        <span class="text-blue-300 mt-0 text-lg">•</span>
-                                        <span>Reviewed and approved journal entries, bank reconciliations, and general ledger reconciliations prepared by the team.</span>
-                                    </li>
-                                    <li class="flex items-start gap-3">
-                                        <span class="text-blue-300 mt-0 text-lg">•</span>
-                                        <span>Responsible for inventory management and cost accounting for the manufacturing company.</span>
-                                    </li>
-                                    <li class="flex items-start gap-3">
-                                        <span class="text-blue-300 mt-0 text-lg">•</span>
-                                        <span>Managed payroll, AR/AP aging controls, and tax filings.</span>
-                                    </li>
-                                    <li class="flex items-start gap-3">
-                                        <span class="text-blue-300 mt-0 text-lg">•</span>
-                                        <span>Led the month-end closing process and prepared draft financial statements for management.</span>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <!-- Previous Roles -->
-                            <div class="pl-8 relative">
-                                <div class="absolute -left-[7px] top-2 w-4 h-4 bg-blue-200 rounded-full border-2 border-white shadow-sm"></div>
-                                <h4 class="text-sm font-bold text-slate-500 uppercase tracking-widest mb-4">Previous Roles</h4>
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    <div class="bg-slate-50 p-4 rounded-lg border border-slate-100 hover:border-blue-200 transition shadow-sm">
-                                        <div class="font-bold text-slate-800 text-sm">Finance Accounting Officer</div>
-                                        <div class="text-slate-500 text-xs italic mt-1">PT Mitsui Leasing Capital Indonesia</div>
-                                        <div class="text-slate-400 text-xs mt-1">2016 - 2018</div>
-                                    </div>
-                                    <div class="bg-slate-50 p-4 rounded-lg border border-slate-100 hover:border-blue-200 transition shadow-sm">
-                                        <div class="font-bold text-slate-800 text-sm">Staff Accounting</div>
-                                        <div class="text-slate-500 text-xs italic mt-1">PT Kilap Propertindo</div>
-                                        <div class="text-slate-400 text-xs mt-1">2014 - 2016</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- PORTFOLIO GRID SECTION (NEW) -->
-                    <div class="mt-8 mb-4">
-                        <div class="flex items-center gap-3 mb-6">
-                            <div class="bg-blue-600 p-2.5 rounded-lg text-white shadow-md">
-                                <i class="fas fa-th-large text-xl"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-slate-800 uppercase tracking-wide">Project Portfolio</h3>
                         </div>
                         
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <p class="text-xs text-slate-500 text-center mb-6 italic no-print">
+                                                    </p>
+
+                        <!-- Contact Info -->
+                        <div class="space-y-5 mb-10">
+                            <h3 class="text-blue-400 font-bold uppercase tracking-wider text-xs border-b border-slate-700 pb-2 mb-4">Contact Details</h3>
                             
-                            <!-- Card 1: Python Automation (Clickable to Pipeline) -->
-                            <div onclick="openProjectDetails()" class="group relative rounded-xl overflow-hidden shadow-md border border-slate-200 bg-white h-48 cursor-pointer">
-                                <!-- Background Image (Blurred/Dimmed) -->
-                                <div class="absolute inset-0 bg-slate-900">
-                                    <img src="AFSTASOR.jpeg" alt="Python Automation" class="w-full h-full object-cover opacity-60 group-hover:opacity-40 transition duration-500 group-hover:scale-110">
+                            <!-- Email -->
+                            <div class="flex items-start gap-3 text-slate-300 hover:text-white transition group">
+                                <div class="w-8 h-8 rounded bg-slate-800 flex items-center justify-center group-hover:bg-blue-600 transition duration-300 flex-shrink-0 border border-slate-700">
+                                    <i class="fas fa-envelope text-sm"></i>
                                 </div>
-                                
-                                <!-- Content (Always Visible Title) -->
-                                <div class="absolute inset-0 p-4 flex flex-col justify-end">
-                                    <div class="translate-y-8 group-hover:translate-y-0 transition-transform duration-300">
-                                        <h4 class="text-white font-bold text-lg mb-1 drop-shadow-md">Python Automation</h4>
-                                        <div class="h-0 group-hover:h-auto opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
-                                            <p class="text-slate-200 text-xs leading-relaxed">
-                                                Automated reconciliation script reducing manual workload by 90%.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Icon Badge -->
-                                <div class="absolute top-3 right-3 bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded shadow-sm">
-                                    Python
+                                <div class="flex flex-col gap-1 overflow-hidden">
+                                    <a href="mailto:fernandohasiholan@yahoo.com" class="text-sm truncate hover:underline hover:text-blue-300 transition text-white-print">fernandohasiholan@yahoo.com</a>
+                                    <a href="mailto:fernandohasiholan11@gmail.com" class="text-sm truncate hover:underline hover:text-blue-300 transition text-white-print">fernandohasiholan11@gmail.com</a>
                                 </div>
                             </div>
 
-                            <!-- Card 2: Tax Dashboard (Placeholder) -->
-                            <div class="group relative rounded-xl overflow-hidden shadow-md border border-slate-200 bg-white h-48 cursor-pointer hover:shadow-lg transition">
-                                <div class="absolute inset-0 bg-slate-800 flex items-center justify-center">
-                                    <i class="fas fa-chart-pie text-6xl text-slate-600 group-hover:text-slate-500 transition duration-300"></i>
+                            <!-- Phone -->
+                            <div class="flex items-center gap-3 text-slate-300 hover:text-white transition group">
+                                <div class="w-8 h-8 rounded bg-slate-800 flex items-center justify-center group-hover:bg-blue-600 transition duration-300 flex-shrink-0 border border-slate-700">
+                                    <i class="fas fa-phone text-sm"></i>
                                 </div>
-                                
-                                <div class="absolute inset-0 p-4 flex flex-col justify-end">
-                                    <div class="translate-y-8 group-hover:translate-y-0 transition-transform duration-300">
-                                        <h4 class="text-white font-bold text-lg mb-1 drop-shadow-md">Tax Dashboard</h4>
-                                        <div class="h-0 group-hover:h-auto opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
-                                            <p class="text-slate-200 text-xs leading-relaxed">
-                                                Interactive PowerBI dashboard for real-time tax liability monitoring.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="absolute top-3 right-3 bg-yellow-600 text-white text-xs font-bold px-2 py-1 rounded shadow-sm">
-                                    PowerBI
-                                </div>
+                                <a href="tel:+628118490120" class="text-sm hover:text-blue-300 transition text-white-print">+62 811 8490 120</a>
                             </div>
 
-                            <!-- Card 3: SOP Flowchart (Placeholder) -->
-                            <div class="group relative rounded-xl overflow-hidden shadow-md border border-slate-200 bg-white h-48 cursor-pointer hover:shadow-lg transition">
-                                <div class="absolute inset-0 bg-slate-800 flex items-center justify-center">
-                                    <i class="fas fa-project-diagram text-6xl text-slate-600 group-hover:text-slate-500 transition duration-300"></i>
+                            <!-- LinkedIn -->
+                            <div class="flex items-center gap-3 text-slate-300 hover:text-white transition group">
+                                <div class="w-8 h-8 rounded bg-slate-800 flex items-center justify-center group-hover:bg-blue-600 transition duration-300 flex-shrink-0 border border-slate-700">
+                                    <i class="fab fa-linkedin-in text-sm"></i>
                                 </div>
-                                
-                                <div class="absolute inset-0 p-4 flex flex-col justify-end">
-                                    <div class="translate-y-8 group-hover:translate-y-0 transition-transform duration-300">
-                                        <h4 class="text-white font-bold text-lg mb-1 drop-shadow-md">SOP Flowchart</h4>
-                                        <div class="h-0 group-hover:h-auto opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
-                                            <p class="text-slate-200 text-xs leading-relaxed">
-                                                Streamlined process maps for month-end closing procedures.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="absolute top-3 right-3 bg-green-600 text-white text-xs font-bold px-2 py-1 rounded shadow-sm">
-                                    Process
-                                </div>
+                                <a href="https://www.linkedin.com/in/fernando-hasiholan-se-ctt-cptt-303735388/" target="_blank" class="text-sm hover:text-blue-300 transition text-white-print truncate w-full" title="View LinkedIn Profile">
+                                    Fernando Hasiholan
+                                </a>
                             </div>
 
+                            <!-- Location -->
+                            <div class="flex items-center gap-3 text-slate-300 hover:text-white transition group">
+                                <div class="w-8 h-8 rounded bg-slate-800 flex items-center justify-center group-hover:bg-blue-600 transition duration-300 flex-shrink-0 border border-slate-700">
+                                    <i class="fas fa-map-marker-alt text-sm"></i>
+                                </div>
+                                <span class="text-sm text-white-print">Jakarta, Bekasi, Indonesia</span>
+                            </div>
                         </div>
-                    </div>
 
-                </div>
-            </main>
-        </div>
-
-        <!-- VIEW 2: CERTIFICATE VIEWER (Hidden by default) -->
-        <div id="certificate-view" class="hidden fixed inset-0 z-50 bg-slate-900 flex flex-col h-screen w-screen">
-            <div class="bg-white p-4 shadow-md flex justify-between items-center z-10">
-                <div class="flex items-center gap-4">
-                    <button onclick="backToResume()" class="bg-blue-900 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded-lg shadow transition flex items-center gap-2">
-                        <i class="fas fa-arrow-left"></i> Back to Resume
-                    </button>
-                    <h2 class="text-lg font-bold text-slate-800">Certificate Viewer</h2>
-                </div>
-            </div>
-            <div class="flex-1 bg-slate-200 p-4 relative">
-                <iframe id="cert-frame" src="" class="w-full h-full rounded-lg shadow-lg border border-slate-300 bg-white"></iframe>
-                <div class="absolute inset-0 flex items-center justify-center pointer-events-none -z-10">
-                    <span class="text-slate-400 font-bold text-xl">Loading Document...</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- VIEW 3: PROJECT DETAIL VIEWER (Hidden by default) -->
-        <div id="project-view" class="hidden fixed inset-0 z-50 bg-slate-900/95 flex flex-col h-screen w-screen overflow-y-auto">
-            <div class="bg-white p-4 shadow-md flex justify-between items-center z-10 sticky top-0">
-                <div class="flex items-center gap-4">
-                    <button onclick="backToResumeFromProject()" class="bg-blue-900 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded-lg shadow transition flex items-center gap-2">
-                        <i class="fas fa-arrow-left"></i> Back to Resume
-                    </button>
-                    <h2 class="text-lg font-bold text-slate-800">Project Details</h2>
-                </div>
-            </div>
-            
-            <div class="flex-1 p-8 flex justify-center">
-                <div class="bg-white max-w-4xl w-full rounded-xl shadow-2xl p-8 border border-slate-200">
-                    <div class="flex items-center gap-4 mb-6 border-b border-slate-100 pb-4">
-                        <div class="bg-blue-600 p-3 rounded-lg text-white shadow-md">
-                            <i class="fas fa-laptop-code text-2xl"></i>
+                        <!-- Education -->
+                        <div class="mb-10">
+                            <h3 class="text-blue-400 font-bold uppercase tracking-wider text-xs border-b border-slate-700 pb-2 mb-4">Education</h3>
+                            <div class="mb-4">
+                                <div class="font-bold text-white text-lg leading-tight text-white-print">Bachelor's Degree in Accounting</div>
+                                <div class="text-blue-200 text-sm font-medium mt-1">Sekolah Tinggi Ilmu Ekonomi Indonesia</div>
+                                <div class="text-slate-500 text-xs italic mt-1 text-slate-300">2012 - 2015</div>
+                            </div>
                         </div>
+
+                        <!-- Certifications -->
+                        <div class="mb-10">
+                            <h3 class="text-blue-400 font-bold uppercase tracking-wider text-xs border-b border-slate-700 pb-2 mb-4">Certifications</h3>
+                            <ul class="space-y-4 text-sm text-slate-300">
+                                
+                                <!-- PSAK (PIPELINE LINK) -->
+                                <li class="flex items-start gap-3 group">
+                                    <i class="fas fa-check-circle text-blue-400 mt-1 group-hover:text-blue-300 transition"></i>
+                                    <div>
+                                        <!-- Tombol untuk pindah halaman -->
+                                        <button onclick="openCertificate('psak professional fha.pdf')" class="text-left group/link focus:outline-none">
+                                            <div class="flex items-center gap-2">
+                                                <strong class="text-white block group-hover/link:text-blue-200 group-hover/link:underline transition leading-snug text-white-print">
+                                                    PSAK for Professional
+                                                </strong>
+                                                <i class="fas fa-arrow-right text-[10px] text-slate-500 group-hover/link:text-blue-300 transition no-print bg-slate-800 p-1 rounded-full w-5 h-5 flex items-center justify-center"></i>
+                                            </div>
+                                        </button>
+                                        <span class="text-xs text-slate-400 text-slate-300 block mt-0.5">Ikatan Akuntan Indonesia (2024)</span>
+                                    </div>
+                                </li>
+
+                                <!-- Brevet A&B -->
+                                <li class="flex items-start gap-3 group">
+                                    <i class="fas fa-book text-yellow-500 mt-1 group-hover:text-yellow-400 transition"></i>
+                                    <div class="w-full">
+                                        <strong class="text-white block mb-1 group-hover:text-yellow-100 transition text-white-print">Brevet A&B</strong>
+                                        <div class="flex flex-col gap-2 border-l-2 border-slate-700 pl-3">
+                                            
+                                            <!-- Lembaga Manajemen Formasi (PIPELINE LINK) -->
+                                            <div class="flex flex-col">
+                                                <button onclick="openCertificate('sertifikat_Fernando Hasiholan P E_AB.pdf')" class="text-left group/link focus:outline-none" title="Click to view certificate">
+                                                    <div class="flex items-center gap-1">
+                                                        <span class="text-xs text-slate-400 text-slate-300 group-hover/link:text-blue-200 group-hover/link:underline transition">
+                                                            Lembaga Manajemen Formasi (2024)
+                                                        </span>
+                                                        <i class="fas fa-arrow-right text-[8px] text-slate-500 group-hover/link:text-blue-300 transition no-print bg-slate-800 p-0.5 rounded-full w-3 h-3 flex items-center justify-center"></i>
+                                                    </div>
+                                                </button>
+                                                <span class="text-xs font-bold text-green-400">Score: A</span>
+                                            </div>
+
+                                            <!-- Sekolah Tinggi Ilmu Ekonomi Indonesia (PIPELINE LINK) -->
+                                            <div class="flex flex-col">
+                                                <!-- Tombol Link Khusus untuk STEI -->
+                                                <button onclick="openCertificate('Brevet A&B STEI.pdf')" class="text-left group/link focus:outline-none" title="Click to view certificate">
+                                                    <div class="flex items-center gap-1">
+                                                        <span class="text-xs text-slate-400 text-slate-300 group-hover/link:text-blue-200 group-hover/link:underline transition">
+                                                            Sekolah Tinggi Ilmu Ekonomi Indonesia Jakarta (2016)
+                                                        </span>
+                                                        <i class="fas fa-arrow-right text-[8px] text-slate-500 group-hover/link:text-blue-300 transition no-print bg-slate-800 p-0.5 rounded-full w-3 h-3 flex items-center justify-center"></i>
+                                                    </div>
+                                                </button>
+                                                <span class="text-xs font-bold text-yellow-500">Score: C</span>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <!-- Brevet C (PIPELINE LINK) -->
+                                <li class="flex items-start gap-3 group">
+                                    <i class="fas fa-book text-yellow-500 mt-1 group-hover:text-yellow-400 transition"></i>
+                                    <div>
+                                        <!-- Tombol untuk pindah halaman -->
+                                        <button onclick="openCertificate('sertifikat_Fernando Hasiholan P E_C.pdf')" class="text-left group/link focus:outline-none">
+                                            <div class="flex items-center gap-2">
+                                                <strong class="text-white block group-hover/link:text-blue-200 group-hover/link:underline transition leading-snug text-white-print">
+                                                    Brevet C
+                                                </strong>
+                                                <i class="fas fa-arrow-right text-[10px] text-slate-500 group-hover/link:text-blue-300 transition no-print bg-slate-800 p-1 rounded-full w-5 h-5 flex items-center justify-center"></i>
+                                            </div>
+                                        </button>
+                                        <div class="flex items-center gap-1">
+                                            <span class="text-xs text-slate-400 text-slate-300 block mt-0.5">Lembaga Manajemen Formasi (2024)</span>
+                                        </div>
+                                        <span class="text-xs font-bold text-green-400">Score: A</span>
+                                    </div>
+                                </li>
+
+                                <!-- CTT (PIPELINE LINK) -->
+                                <li class="flex items-start gap-3 group">
+                                    <i class="fas fa-certificate text-yellow-500 mt-1 group-hover:text-yellow-400 transition"></i>
+                                    <div>
+                                        <button onclick="openCertificate('CTT_lengkap.pdf')" class="text-left group/link focus:outline-none">
+                                            <div class="flex items-center gap-2">
+                                                <strong class="text-white block group-hover/link:text-yellow-100 group-hover/link:underline transition leading-snug text-white-print">
+                                                    Certified Tax Technician (CTT)
+                                                </strong>
+                                                <i class="fas fa-arrow-right text-[10px] text-slate-500 group-hover/link:text-yellow-300 transition no-print bg-slate-800 p-1 rounded-full w-5 h-5 flex items-center justify-center"></i>
+                                            </div>
+                                        </button>
+                                        <span class="text-xs text-slate-400 text-slate-300 block mt-0.5">Asosiasi Teknisi Perpajakan Indonesia (ATPI)</span>
+                                    </div>
+                                </li>
+
+                                <!-- CPTT (PIPELINE LINK) -->
+                                <li class="flex items-start gap-3 group">
+                                    <i class="fas fa-certificate text-yellow-500 mt-1 group-hover:text-yellow-400 transition"></i>
+                                    <div>
+                                        <button onclick="openCertificate('CPTT_lengkap.pdf')" class="text-left group/link focus:outline-none">
+                                            <div class="flex items-center gap-2">
+                                                <strong class="text-white block group-hover/link:text-yellow-100 group-hover/link:underline transition leading-snug text-white-print">
+                                                    Certified Professional Tax Technician (CPTT)
+                                                </strong>
+                                                <i class="fas fa-arrow-right text-[10px] text-slate-500 group-hover/link:text-yellow-300 transition no-print bg-slate-800 p-1 rounded-full w-5 h-5 flex items-center justify-center"></i>
+                                            </div>
+                                        </button>
+                                        <span class="text-xs text-slate-400 text-slate-300 block mt-0.5">Asosiasi Teknisi Perpajakan Indonesia (ATPI)</span>
+                                    </div>
+                                </li>
+
+                                <!-- Transfer Pricing (PIPELINE LINK) -->
+                                <li class="flex items-start gap-3 group">
+                                    <i class="fas fa-check-circle text-blue-400 mt-1 group-hover:text-blue-300 transition"></i>
+                                    <div>
+                                        <button onclick="openCertificate('masterclass_tpdoc_iai.pdf')" class="text-left group/link focus:outline-none">
+                                            <div class="flex items-center gap-2">
+                                                <strong class="text-white block group-hover/link:text-blue-100 group-hover/link:underline transition leading-snug text-white-print">
+                                                    Transfer Pricing Masterclass
+                                                </strong>
+                                                <i class="fas fa-arrow-right text-[10px] text-slate-500 group-hover/link:text-blue-300 transition no-print bg-slate-800 p-1 rounded-full w-5 h-5 flex items-center justify-center"></i>
+                                            </div>
+                                        </button>
+                                        <span class="text-xs text-slate-400 text-slate-300 block mt-0.5">Ikatan Akuntan Indonesia (2025)</span>
+                                    </div>
+                                </li>
+
+                                <!-- EF SET (PIPELINE LINK) -->
+                                <li class="flex items-start gap-3 border-t border-slate-800 pt-3 mt-2 group">
+                                    <i class="fas fa-language text-green-400 mt-1 group-hover:text-green-300 transition"></i>
+                                    <div>
+                                        <!-- Tombol untuk pindah halaman -->
+                                        <button onclick="openCertificate('efset.pdf')" class="text-left group/link focus:outline-none">
+                                            <div class="flex items-center gap-2">
+                                                <strong class="text-white block group-hover/link:text-green-100 group-hover/link:underline transition text-white-print">
+                                                    EF SET English Certificate
+                                                </strong>
+                                                <i class="fas fa-arrow-right text-[10px] text-slate-500 group-hover/link:text-green-300 transition no-print bg-slate-800 p-1 rounded-full w-5 h-5 flex items-center justify-center"></i>
+                                            </div>
+                                        </button>
+                                        <span class="text-xs text-slate-400 text-slate-300">C2 Proficient (Score 71/100)</span>
+                                    </div>
+                                </li>
+                                
+                                <!-- MODERATOR (PIPELINE LINK) -->
+                                <li class="flex items-start gap-3 group">
+                                    <i class="fas fa-microphone text-green-400 mt-1 group-hover:text-green-300 transition"></i>
+                                    <div>
+                                        <button onclick="openCertificate('Moderator - Pendidikan Profesional Berkelanjutan (PPL) - Kewajiban PPh Orang Pribadi di Indonesia.pdf')" class="text-left group/link focus:outline-none">
+                                            <div class="flex items-center gap-2">
+                                                <strong class="text-white block group-hover/link:text-green-100 group-hover/link:underline transition text-white-print leading-snug">
+                                                    Moderator - Pendidikan Profesional Berkelanjutan (PPL)
+                                                </strong>
+                                                <i class="fas fa-arrow-right text-[10px] text-slate-500 group-hover/link:text-green-300 transition no-print bg-slate-800 p-1 rounded-full w-5 h-5 flex items-center justify-center"></i>
+                                            </div>
+                                        </button>
+                                        <span class="text-xs text-slate-300 block mt-1 italic">“Kewajiban PPh Orang Pribadi di Indonesia : Isu Terkini dan Tantangan Ke Depan”</span>
+                                        <span class="text-xs text-slate-400 text-slate-300 block mt-0.5">Ikatan Akuntan Indonesia (IAI) Wilayah Riau (2024)</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Skills -->
+                        <div class="mb-10">
+                            <h3 class="text-blue-400 font-bold uppercase tracking-wider text-xs border-b border-slate-700 pb-2 mb-4">Professional Skills</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-slate-800 border border-slate-700 text-slate-200 px-3 py-1 rounded-md text-xs font-semibold hover:bg-blue-900 hover:text-white hover:border-blue-700 transition cursor-default">SAP</span>
+                                <span class="bg-slate-800 border border-slate-700 text-slate-200 px-3 py-1 rounded-md text-xs font-semibold hover:bg-blue-900 hover:text-white hover:border-blue-700 transition cursor-default">MYOB</span>
+                                <span class="bg-slate-800 border border-slate-700 text-slate-200 px-3 py-1 rounded-md text-xs font-semibold hover:bg-blue-900 hover:text-white hover:border-blue-700 transition cursor-default">Accurate</span>
+                                <span class="bg-slate-800 border border-slate-700 text-slate-200 px-3 py-1 rounded-md text-xs font-semibold hover:bg-blue-900 hover:text-white hover:border-blue-700 transition cursor-default">Orlansoft</span>
+                                <span class="bg-slate-800 border border-slate-700 text-slate-200 px-3 py-1 rounded-md text-xs font-semibold hover:bg-blue-900 hover:text-white hover:border-blue-700 transition cursor-default">Tax Compliance</span>
+                                <span class="bg-slate-800 border border-slate-700 text-slate-200 px-3 py-1 rounded-md text-xs font-semibold hover:bg-blue-900 hover:text-white hover:border-blue-700 transition cursor-default">Tax Planning</span>
+                                <span class="bg-slate-800 border border-slate-700 text-slate-200 px-3 py-1 rounded-md text-xs font-semibold hover:bg-blue-900 hover:text-white hover:border-blue-700 transition cursor-default">WHT, VAT & CIT</span>
+                                <span class="bg-slate-800 border border-slate-700 text-slate-200 px-3 py-1 rounded-md text-xs font-semibold hover:bg-blue-900 hover:text-white hover:border-blue-700 transition cursor-default">Financial Reporting</span>
+                                <span class="bg-slate-800 border border-slate-700 text-slate-200 px-3 py-1 rounded-md text-xs font-semibold hover:bg-blue-900 hover:text-white hover:border-blue-700 transition cursor-default">PSAK</span>
+                                <span class="bg-slate-800 border border-slate-700 text-slate-200 px-3 py-1 rounded-md text-xs font-semibold hover:bg-blue-900 hover:text-white hover:border-blue-700 transition cursor-default">IFRS</span>
+                                <span class="bg-slate-800 border border-slate-700 text-slate-200 px-3 py-1 rounded-md text-xs font-semibold hover:bg-blue-900 hover:text-white hover:border-blue-700 transition cursor-default">Risk Management</span>
+                            </div>
+                        </div>
+
+                        <!-- Languages -->
+                        <div class="mb-10">
+                            <h3 class="text-blue-400 font-bold uppercase tracking-wider text-xs border-b border-slate-700 pb-2 mb-4">Languages</h3>
+                            <div class="space-y-3 text-sm text-slate-300">
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span>Indonesian</span>
+                                        <span class="font-bold text-white text-white-print">Native</span>
+                                    </div>
+                                    <div class="w-full bg-slate-700 rounded-full h-1.5">
+                                        <div class="bg-blue-500 h-1.5 rounded-full" style="width: 100%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span>English</span>
+                                        <span class="font-bold text-white text-white-print">Fluent (C2)</span>
+                                    </div>
+                                    <div class="w-full bg-slate-700 rounded-full h-1.5">
+                                        <div class="bg-green-500 h-1.5 rounded-full" style="width: 95%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- PORTFOLIO SIDEBAR SECTION (NEW) -->
                         <div>
-                            <h1 class="text-2xl font-bold text-slate-800">Automated Reconciliation System (Python-Based)</h1>
-                            <p class="text-blue-600 font-semibold">Transforming Manual Reconciliation: From Excel Limits to Python Automation</p>
+                            <h3 class="text-blue-400 font-bold uppercase tracking-wider text-xs border-b border-slate-700 pb-2 mb-4">Portfolio</h3>
+                            
+                            <div class="space-y-4">
+                                
+                                <!-- Card 1: Python Automation -->
+                                <div onclick="openProjectDetails()" class="group relative rounded-lg overflow-hidden border border-slate-700 bg-slate-800 h-32 cursor-pointer shadow-sm hover:shadow-md transition">
+                                    <div class="absolute inset-0 bg-slate-900">
+                                        <img src="AFSTASOR.jpeg" alt="Python Automation" class="w-full h-full object-cover opacity-60 group-hover:opacity-40 transition duration-500 group-hover:scale-105">
+                                    </div>
+                                    <div class="absolute inset-0 p-3 flex flex-col justify-end">
+                                        <div class="translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                                            <h4 class="text-white font-bold text-sm mb-1 leading-tight drop-shadow-md">Python Automation</h4>
+                                            <div class="h-0 group-hover:h-auto opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100 overflow-hidden">
+                                                <p class="text-slate-300 text-[10px] leading-tight mt-1">
+                                                    Automated reconciliation script reducing manual workload by 90%.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="absolute top-2 right-2 bg-blue-600 text-white text-[9px] font-bold px-1.5 py-0.5 rounded shadow-sm">
+                                        Python
+                                    </div>
+                                </div>
+
+                                <!-- Card 2: Tax Dashboard -->
+                                <div class="group relative rounded-lg overflow-hidden border border-slate-700 bg-slate-800 h-32 cursor-pointer shadow-sm hover:shadow-md transition">
+                                    <div class="absolute inset-0 bg-slate-800 flex items-center justify-center">
+                                        <i class="fas fa-chart-pie text-4xl text-slate-600 group-hover:text-slate-500 transition duration-300"></i>
+                                    </div>
+                                    <div class="absolute inset-0 p-3 flex flex-col justify-end">
+                                        <div class="translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                                            <h4 class="text-white font-bold text-sm mb-1 leading-tight drop-shadow-md">Tax Dashboard</h4>
+                                            <div class="h-0 group-hover:h-auto opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100 overflow-hidden">
+                                                <p class="text-slate-300 text-[10px] leading-tight mt-1">
+                                                    Interactive PowerBI dashboard for real-time tax liability monitoring.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="absolute top-2 right-2 bg-yellow-600 text-white text-[9px] font-bold px-1.5 py-0.5 rounded shadow-sm">
+                                        PowerBI
+                                    </div>
+                                </div>
+
+                                <!-- Card 3: SOP Flowchart -->
+                                <div onclick="openClosingProject()" class="group relative rounded-lg overflow-hidden border border-slate-700 bg-slate-800 h-32 cursor-pointer shadow-sm hover:shadow-md transition">
+                                    <div class="absolute inset-0 bg-slate-800 flex items-center justify-center">
+                                        <i class="fas fa-project-diagram text-4xl text-slate-600 group-hover:text-slate-500 transition duration-300"></i>
+                                    </div>
+                                    <div class="absolute inset-0 p-3 flex flex-col justify-end">
+                                        <div class="translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                                            <h4 class="text-white font-bold text-sm mb-1 leading-tight drop-shadow-md">Accelerated Month-End Closing</h4>
+                                            <div class="h-0 group-hover:h-auto opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100 overflow-hidden">
+                                                <p class="text-slate-300 text-[10px] leading-tight mt-1">
+                                                    Streamlining cross-departmental deliverables to T-1 Target.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="absolute top-2 right-2 bg-green-600 text-white text-[9px] font-bold px-1.5 py-0.5 rounded shadow-sm">
+                                        Process
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </aside>
+
+                <!-- MAIN CONTENT -->
+                <main class="w-full md:w-2/3 p-6 md:p-10 bg-slate-200 relative">
+                    <div class="relative z-10 max-w-4xl mx-auto">
+                        <!-- Header -->
+                        <div class="print-bg-blue bg-blue-900 rounded-xl shadow-lg p-8 mb-6 flex flex-col justify-center text-white relative overflow-hidden">
+                            <div class="absolute top-0 right-0 w-32 h-32 bg-white opacity-5 rounded-full -mr-10 -mt-10"></div>
+                            <div class="absolute bottom-0 left-0 w-24 h-24 bg-white opacity-5 rounded-full -ml-10 -mb-10"></div>
+                            <div class="relative z-10">
+                                <h1 class="text-4xl md:text-5xl font-extrabold mb-2 tracking-tight text-white text-white-print">Fernando Hasiholan PE</h1>
+                                <div class="flex items-center gap-3 mt-2">
+                                    <span class="h-px flex-1 bg-blue-700"></span>
+                                    <h2 class="text-sm md:text-base text-blue-200 font-bold tracking-widest uppercase text-center">Finance, Accounting & Tax Professional</h2>
+                                    <span class="h-px flex-1 bg-blue-700"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Summary -->
+                        <div class="print-bg-light bg-blue-50 rounded-xl shadow-sm p-8 mb-6 relative overflow-hidden border border-blue-100">
+                            <div class="flex items-center gap-3 mb-5 relative z-10">
+                                <div class="bg-blue-200 p-2.5 rounded-lg text-blue-900 shadow-sm">
+                                    <i class="fas fa-user-tie text-xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-slate-800">Profile Summary</h3>
+                            </div>
+                            <p class="text-slate-700 leading-relaxed text-justify relative z-10">
+                                Finance, Accounting & Tax Professional with 10+ years in multinational logistics, resources, manufacturing, multinational leasing, property, and public firms. Certified CTT, CPTT, Brevet A&B, Brevet C, and PSAK for Professionals. Skilled in reporting, tax compliance, risk management, and leading teams to optimize processes.
+                            </p>
+                        </div>
+
+                        <!-- FEATURED PROJECT (New Section with Pipeline) -->
+                        <div class="bg-slate-50 rounded-xl shadow-sm p-8 mb-6 border border-blue-100 relative overflow-hidden">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <div class="bg-blue-600 p-2.5 rounded-lg text-white shadow-md">
+                                        <i class="fas fa-laptop-code text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-lg font-bold text-slate-800 uppercase tracking-wide">Featured Project</h3>
+                                        <p class="text-sm text-blue-600 font-semibold">Transforming Manual Reconciliation: From Excel Limits to Python Automation</p>
+                                    </div>
+                                </div>
+                                <button onclick="openProjectDetails()" class="bg-blue-900 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded-full shadow-lg transition duration-300 flex items-center gap-2 text-sm">
+                                    View Project Details <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Work Experience -->
+                        <div class="bg-white rounded-xl shadow-md p-8 relative border border-slate-200">
+                            <div class="flex items-center gap-3 mb-8">
+                                <div class="bg-blue-50 p-2.5 rounded-lg text-blue-900 shadow-sm border border-blue-100">
+                                    <i class="fas fa-briefcase text-xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-slate-800">Work Experience</h3>
+                            </div>
+
+                            <div class="relative border-l-2 border-blue-100 ml-3.5 space-y-12 pb-2">
+                                <!-- Job 1 -->
+                                <div class="pl-8 relative group">
+                                    <div class="absolute -left-[9px] top-1.5 w-5 h-5 bg-blue-900 rounded-full border-4 border-blue-100 shadow-sm group-hover:scale-110 transition duration-300"></div>
+                                    <div class="flex flex-col sm:flex-row justify-between sm:items-start mb-1">
+                                        <h4 class="text-lg font-bold text-slate-900 group-hover:text-blue-800 transition">Supervisor Accounting & Tax</h4>
+                                        <span class="bg-blue-50 text-blue-800 text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap mt-2 sm:mt-0 border border-blue-100">2022 - Present</span>
+                                    </div>
+                                    <div class="text-blue-600 font-semibold mb-3 text-sm">PT Seacon Bintang Sejahtera (A. P. Møller-Mærsk JV)</div>
+                                    <ul class="list-none text-slate-600 space-y-2 text-sm ml-1">
+                                        <li class="flex items-start gap-3">
+                                            <i class="fas fa-check text-blue-500 text-xs mt-1.5"></i>
+                                            <span><strong>Team Leadership:</strong> Direct and mentor a high-performing team of 9 to 15 personnel SBS Teams (including interns), overseeing daily accounting operations, KPI monitoring, and workload distribution to ensure zero defect reporting.</span>
+                                        </li>
+                                        <li class="flex items-start gap-3">
+                                            <i class="fas fa-check text-blue-500 text-xs mt-1.5"></i>
+                                            <span>Led end-to-end accounting operations, including accurate COA reconciliation, Withholding Tax (WHT), and VAT calculations for a multinational logistics joint venture.</span>
+                                        </li>
+                                        <li class="flex items-start gap-3">
+                                            <i class="fas fa-check text-blue-500 text-xs mt-1.5"></i>
+                                            <span>Managed the full cycle of financial reporting, ensuring timely monthly and annual closing in accordance with PSAK and IFRS.</span>
+                                        </li>
+                                        <li class="flex items-start gap-3">
+                                            <i class="fas fa-check text-blue-500 text-xs mt-1.5"></i>
+                                            <span>Oversaw tax compliance strategies to minimize risk and acted as the key point of contact for external tax auditors.</span>
+                                        </li>
+                                        <li class="flex items-start gap-3">
+                                            <i class="fas fa-check text-blue-500 text-xs mt-1.5"></i>
+                                            <span>Implemented internal controls and optimized financial procedures within the ERP environment to enhance data integrity.</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <!-- Job 2 -->
+                                <div class="pl-8 relative group">
+                                    <div class="absolute -left-[9px] top-1.5 w-5 h-5 bg-white rounded-full border-4 border-blue-200 shadow-sm group-hover:border-blue-400 transition duration-300"></div>
+                                    <div class="flex flex-col sm:flex-row justify-between sm:items-start mb-1">
+                                        <h4 class="text-lg font-bold text-slate-900 group-hover:text-blue-800 transition">Senior Accounting Staff</h4>
+                                        <span class="bg-slate-50 text-slate-600 text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap mt-2 sm:mt-0 border border-slate-100">2020 - 2022</span>
+                                    </div>
+                                    <div class="text-slate-600 font-semibold mb-3 text-sm">PT Rajawali Anugrah Resources</div>
+                                    <ul class="list-none text-slate-600 space-y-2 text-sm ml-1">
+                                        <li class="flex items-start gap-3">
+                                            <span class="text-blue-300 mt-0 text-lg">•</span>
+                                            <span><strong>Outsourcing Financial Operations:</strong> Led a team of 2 Staff in managing complex payroll processing for a diverse portfolio of outsourcing clients, including major Tier-1 accounts such as PT. TELEKOMUNIKASI INDONESIA, Tbk , PT. NYK LINE INDONESIA, PT. OCEAN NETWORK EXPRESS INDONESIA (ONE), PT. BALI TOWERINDO SENTRA, Tbk , etc.</span>
+                                        </li>
+                                        <li class="flex items-start gap-3">
+                                            <span class="text-blue-300 mt-0 text-lg">•</span>
+                                            <span><strong>Revenue Assurance & Billing:</strong> Oversaw the end-to-end invoicing cycle for these key clients. Ensured 100% accuracy in payroll to invoice reconciliation (cost recharge + management fees) to prevent revenue leakage and ensure timely account receivables.</span>
+                                        </li>
+                                        <li class="flex items-start gap-3">
+                                            <span class="text-blue-300 mt-0 text-lg">•</span>
+                                            <span><strong>Compliance & Reporting:</strong> Prepared detailed monthly financial statements and tax filings, ensuring compliance with diverse client contract requirements.</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <!-- Job 3 -->
+                                <div class="pl-8 relative group">
+                                    <div class="absolute -left-[9px] top-1.5 w-5 h-5 bg-white rounded-full border-4 border-blue-200 shadow-sm group-hover:border-blue-400 transition duration-300"></div>
+                                    <div class="flex flex-col sm:flex-row justify-between sm:items-start mb-1">
+                                        <h4 class="text-lg font-bold text-slate-900 group-hover:text-blue-800 transition">Senior Accounting & Tax</h4>
+                                        <span class="bg-slate-50 text-slate-600 text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap mt-2 sm:mt-0 border border-slate-100">2019 - 2020</span>
+                                    </div>
+                                    <div class="text-slate-600 font-semibold mb-3 text-sm">PT Krida Jaringan Nusantara, Tbk</div>
+                                    <div class="text-slate-500 text-xs mb-2 italic">Reported directly to the Finance Director & Corporate Secretary, acting as the key person for statutory compliance and financial control.</div>
+                                    <ul class="list-none text-slate-600 space-y-2 text-sm ml-1">
+                                        <li class="flex items-start gap-3">
+                                            <span class="text-blue-300 mt-0 text-lg">•</span>
+                                            <span><strong>High Stakes Compliance (XBRL Specialist):</strong> Exclusively managed the end to end statutory reporting to the Financial Services Authority (OJK). Executed full cycle reporting independently, including complex XBRL submissions, ensuring zero regulatory penalties for the public entity.</span>
+                                        </li>
+                                        <li class="flex items-start gap-3">
+                                            <span class="text-blue-300 mt-0 text-lg">•</span>
+                                            <span><strong>Strategic Tax Defense:</strong> Successfully led the resolution of SP2DK inquiries and Tax Audits for the holding company and its subsidiaries, acting as the primary representative to the Tax Office (KPP) to mitigate potential assessments.</span>
+                                        </li>
+                                        <li class="flex items-start gap-3">
+                                            <span class="text-blue-300 mt-0 text-lg">•</span>
+                                            <span><strong>Group Wide Compliance Leadership:</strong> Directed the workflow of 4 support staff in completing Annual Corporate Tax Returns (SPT Badan) for over 50 legal entities, ensuring 100% compliance across the entire business group.</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <!-- Job 4 -->
+                                <div class="pl-8 relative group">
+                                    <div class="absolute -left-[9px] top-1.5 w-5 h-5 bg-white rounded-full border-4 border-blue-200 shadow-sm group-hover:border-blue-400 transition duration-300"></div>
+                                    <div class="flex flex-col sm:flex-row justify-between sm:items-start mb-1">
+                                        <h4 class="text-lg font-bold text-slate-900 group-hover:text-blue-800 transition">Supervisor Accounting</h4>
+                                        <span class="bg-slate-50 text-slate-600 text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap mt-2 sm:mt-0 border border-slate-100">2018 - 2019</span>
+                                    </div>
+                                    <div class="text-slate-600 font-semibold mb-1 text-sm">PT Poetra Mesti Makmur</div>
+                                    <div class="text-slate-500 text-xs mb-3 italic">Manufacture Company - Thermal Paper</div>
+                                    <ul class="list-none text-slate-600 space-y-2 text-sm ml-1">
+                                        <li class="flex items-start gap-3">
+                                            <span class="text-blue-300 mt-0 text-lg">•</span>
+                                            <span>Supervised the daily accounting team (AP, AR, GL) of 2 staff, ensuring timely and accurate work.</span>
+                                        </li>
+                                        <li class="flex items-start gap-3">
+                                            <span class="text-blue-300 mt-0 text-lg">•</span>
+                                            <span>Reviewed and approved journal entries, bank reconciliations, and general ledger reconciliations prepared by the team.</span>
+                                        </li>
+                                        <li class="flex items-start gap-3">
+                                            <span class="text-blue-300 mt-0 text-lg">•</span>
+                                            <span>Responsible for inventory management and cost accounting for the manufacturing company.</span>
+                                        </li>
+                                        <li class="flex items-start gap-3">
+                                            <span class="text-blue-300 mt-0 text-lg">•</span>
+                                            <span>Managed payroll, AR/AP aging controls, and tax filings.</span>
+                                        </li>
+                                        <li class="flex items-start gap-3">
+                                            <span class="text-blue-300 mt-0 text-lg">•</span>
+                                            <span>Led the month-end closing process and prepared draft financial statements for management.</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <!-- Previous Roles -->
+                                <div class="pl-8 relative">
+                                    <div class="absolute -left-[7px] top-2 w-4 h-4 bg-blue-200 rounded-full border-2 border-white shadow-sm"></div>
+                                    <h4 class="text-sm font-bold text-slate-500 uppercase tracking-widest mb-4">Previous Roles</h4>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div class="bg-slate-50 p-4 rounded-lg border border-slate-100 hover:border-blue-200 transition shadow-sm">
+                                            <div class="font-bold text-slate-800 text-sm">Finance Accounting Officer</div>
+                                            <div class="text-slate-500 text-xs italic mt-1">PT Mitsui Leasing Capital Indonesia</div>
+                                            <div class="text-slate-400 text-xs mt-1">2016 - 2018</div>
+                                        </div>
+                                        <div class="bg-slate-50 p-4 rounded-lg border border-slate-100 hover:border-blue-200 transition shadow-sm">
+                                            <div class="font-bold text-slate-800 text-sm">Staff Accounting</div>
+                                            <div class="text-slate-500 text-xs italic mt-1">PT Kilap Propertindo</div>
+                                            <div class="text-slate-400 text-xs mt-1">2014 - 2016</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                </main>
+            </div>
 
-                    <div class="prose max-w-none text-slate-600 mb-8">
-                        <p class="text-lg leading-relaxed mb-6">
-                            Spearheaded the transition from manual spreadsheet processing to automated data analytics using Python (Pandas). Addressed Excel's row limitations in handling big data transactions. I designed the reconciliation logic and collaborated on the script execution to ensure scalability, data integrity, and significant efficiency gains in monthly closing cycles.
-                        </p>
-                        
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                            <div class="bg-red-50 p-4 rounded-lg border border-red-100">
-                                <h4 class="font-bold text-red-700 uppercase text-xs mb-2">Challenge</h4>
-                                <p class="text-sm">Legacy Excel reconciliation faced performance limits (1M+ rows) & high manual error risk.</p>
-                            </div>
-                            <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
-                                <h4 class="font-bold text-blue-700 uppercase text-xs mb-2">Solution</h4>
-                                <p class="text-sm">Designed a Python-based logic using Pandas library to automate 'One-to-Many' data matching.</p>
-                            </div>
-                            <div class="bg-green-50 p-4 rounded-lg border border-green-100">
-                                <h4 class="font-bold text-green-700 uppercase text-xs mb-2">Impact</h4>
-                                <p class="text-sm">Reduced processing time by 90% and achieved 0% variance in final reporting.</p>
-                            </div>
-                        </div>
+            <!-- VIEW 2: CERTIFICATE VIEWER (Hidden by default) -->
+            <div id="certificate-view" class="hidden fixed inset-0 z-50 bg-slate-900 flex flex-col h-screen w-screen">
+                <div class="bg-white p-4 shadow-md flex justify-between items-center z-10">
+                    <div class="flex items-center gap-4">
+                        <button onclick="backToResume()" class="bg-blue-900 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded-lg shadow transition flex items-center gap-2">
+                            <i class="fas fa-arrow-left"></i> Back to Resume
+                        </button>
+                        <h2 class="text-lg font-bold text-slate-800">Certificate Viewer</h2>
                     </div>
-
-                    <!-- Code Visual -->
-                    <div class="rounded-lg shadow-xl overflow-hidden bg-[#1e1e1e] border border-slate-700">
-                        <div class="bg-[#2d2d2d] px-4 py-2 flex gap-2 items-center border-b border-[#1e1e1e]">
-                            <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
-                            <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
-                            <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
-                            <div class="ml-4 text-[10px] text-gray-400 font-mono">reconciliation_script.py</div>
-                        </div>
-                        <img src="AFSTASOR.jpeg" alt="Python Automation Script" class="w-full h-auto object-cover opacity-90">
+                </div>
+                <div class="flex-1 bg-slate-200 p-4 relative">
+                    <iframe id="cert-frame" src="" class="w-full h-full rounded-lg shadow-lg border border-slate-300 bg-white"></iframe>
+                    <div class="absolute inset-0 flex items-center justify-center pointer-events-none -z-10">
+                        <span class="text-slate-400 font-bold text-xl">Loading Document...</span>
                     </div>
                 </div>
             </div>
+
+            <!-- VIEW 3: PROJECT DETAIL VIEWER (Hidden by default) -->
+            <div id="project-view" class="hidden fixed inset-0 z-50 bg-slate-900/95 flex flex-col h-screen w-screen overflow-y-auto">
+                <div class="bg-white p-4 shadow-md flex justify-between items-center z-10 sticky top-0">
+                    <div class="flex items-center gap-4">
+                        <button onclick="backToResumeFromProject()" class="bg-blue-900 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded-lg shadow transition flex items-center gap-2">
+                            <i class="fas fa-arrow-left"></i> Back to Resume
+                        </button>
+                        <h2 class="text-lg font-bold text-slate-800">Project Details</h2>
+                    </div>
+                </div>
+                
+                <div class="flex-1 p-8 flex justify-center">
+                    <div class="bg-white max-w-4xl w-full rounded-xl shadow-2xl p-8 border border-slate-200">
+                        <div class="flex items-center gap-4 mb-6 border-b border-slate-100 pb-4">
+                            <div class="bg-blue-600 p-3 rounded-lg text-white shadow-md">
+                                <i class="fas fa-laptop-code text-2xl"></i>
+                            </div>
+                            <div>
+                                <h1 class="text-2xl font-bold text-slate-800">Automated Reconciliation System (Python-Based)</h1>
+                                <p class="text-blue-600 font-semibold">Transforming Manual Reconciliation: From Excel Limits to Python Automation</p>
+                            </div>
+                        </div>
+
+                        <div class="prose max-w-none text-slate-600 mb-8">
+                            <p class="text-lg leading-relaxed mb-6">
+                                Spearheaded the transition from manual spreadsheet processing to automated data analytics using Python (Pandas). Addressed Excel's row limitations in handling big data transactions. I designed the reconciliation logic and collaborated on the script execution to ensure scalability, data integrity, and significant efficiency gains in monthly closing cycles.
+                            </p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                                <div class="bg-red-50 p-4 rounded-lg border border-red-100">
+                                    <h4 class="font-bold text-red-700 uppercase text-xs mb-2">Challenge</h4>
+                                    <p class="text-sm">Legacy Excel reconciliation faced performance limits (1M+ rows) & high manual error risk.</p>
+                                </div>
+                                <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
+                                    <h4 class="font-bold text-blue-700 uppercase text-xs mb-2">Solution</h4>
+                                    <p class="text-sm">Designed a Python-based logic using Pandas library to automate 'One-to-Many' data matching.</p>
+                                </div>
+                                <div class="bg-green-50 p-4 rounded-lg border border-green-100">
+                                    <h4 class="font-bold text-green-700 uppercase text-xs mb-2">Impact</h4>
+                                    <p class="text-sm">Reduced processing time by 90% and achieved 0% variance in final reporting.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Code Visual -->
+                        <div class="rounded-lg shadow-xl overflow-hidden bg-[#1e1e1e] border border-slate-700">
+                            <div class="bg-[#2d2d2d] px-4 py-2 flex gap-2 items-center border-b border-[#1e1e1e]">
+                                <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+                                <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+                                <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+                                <div class="ml-4 text-[10px] text-gray-400 font-mono">reconciliation_script.py</div>
+                            </div>
+                            <img src="AFSTASOR.jpeg" alt="Python Automation Script" class="w-full h-auto object-cover opacity-90">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VIEW 4: MONTH END CLOSING DETAIL (New Overlay) -->
+            <div id="closing-project-view" class="hidden fixed inset-0 z-50 bg-slate-900/95 flex flex-col h-screen w-screen overflow-y-auto">
+                <div class="bg-white p-4 shadow-md flex justify-between items-center z-10 sticky top-0">
+                    <div class="flex items-center gap-4">
+                        <button onclick="backToResumeFromClosing()" class="bg-blue-900 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded-lg shadow transition flex items-center gap-2">
+                            <i class="fas fa-arrow-left"></i> Back to Resume
+                        </button>
+                        <h2 class="text-lg font-bold text-slate-800">Project Details</h2>
+                    </div>
+                </div>
+                
+                <div class="flex-1 p-8 flex justify-center">
+                    <div class="bg-white max-w-4xl w-full rounded-xl shadow-2xl p-8 border border-slate-200">
+                        <div class="flex items-center gap-4 mb-6 border-b border-slate-100 pb-4">
+                            <div class="bg-indigo-600 p-3 rounded-lg text-white shadow-md">
+                                <i class="fas fa-calendar-check text-2xl"></i>
+                            </div>
+                            <div>
+                                <h1 class="text-2xl font-bold text-slate-800">Accelerated Month-End Closing Framework</h1>
+                                <p class="text-indigo-600 font-semibold">Streamlining cross-departmental deliverables to achieve T-1 Reporting Target</p>
+                            </div>
+                        </div>
+
+                        <div class="prose max-w-none text-slate-600 mb-8">
+                            <p class="text-lg leading-relaxed mb-6">
+                                Re-engineered the monthly financial close process to ensure timely reporting and compliance with PSAK/IFRS. Developed a standardized closing checklist and inter-departmental communication flow.
+                            </p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                                <div class="bg-red-50 p-4 rounded-lg border border-red-100">
+                                    <h4 class="font-bold text-red-700 uppercase text-xs mb-2">Challenge</h4>
+                                    <p class="text-sm">Closing process was inefficient, taking up to 10-12 days with frequent post-closing adjustments.</p>
+                                </div>
+                                <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
+                                    <h4 class="font-bold text-blue-700 uppercase text-xs mb-2">Solution</h4>
+                                    <p class="text-sm">Designed a Master Closing Checklist & Flowchart, enforced cut-off dates, and automated accrual schedules.</p>
+                                </div>
+                                <div class="bg-green-50 p-4 rounded-lg border border-green-100">
+                                    <h4 class="font-bold text-green-700 uppercase text-xs mb-2">Impact</h4>
+                                    <p class="text-sm">Reduced closing timeline to 5 working days (T+5) and eliminated post-closing adjustments.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Month End Closing Visual -->
+                        <div class="rounded-lg shadow-xl overflow-hidden bg-slate-50 border border-slate-200">
+                            <div class="bg-slate-100 px-4 py-2 flex gap-2 items-center border-b border-slate-200">
+                                <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+                                <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+                                <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+                                <div class="ml-4 text-[10px] text-gray-500 font-mono">closing_report_october_2022.msg</div>
+                            </div>
+                            <img src="monthendclose.jpeg" alt="Month End Closing Report" class="w-full h-auto object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
-    </div>
+        <!-- JavaScript for View Switching -->
+        <script>
+            function openCertificate(fileUrl) {
+                document.getElementById('resume-view').classList.add('hidden');
+                document.getElementById('print-btn').classList.add('opacity-0', 'pointer-events-none');
+                const certView = document.getElementById('certificate-view');
+                certView.classList.remove('hidden');
+                document.getElementById('cert-frame').src = fileUrl;
+            }
 
-    <!-- JavaScript for View Switching -->
-    <script>
-        function openCertificate(fileUrl) {
-            document.getElementById('resume-view').classList.add('hidden');
-            document.getElementById('print-btn').classList.add('opacity-0', 'pointer-events-none');
-            const certView = document.getElementById('certificate-view');
-            certView.classList.remove('hidden');
-            document.getElementById('cert-frame').src = fileUrl;
-        }
+            function backToResume() {
+                document.getElementById('certificate-view').classList.add('hidden');
+                document.getElementById('cert-frame').src = '';
+                document.getElementById('resume-view').classList.remove('hidden');
+                document.getElementById('print-btn').classList.remove('opacity-0', 'pointer-events-none');
+            }
 
-        function backToResume() {
-            document.getElementById('certificate-view').classList.add('hidden');
-            document.getElementById('cert-frame').src = '';
-            document.getElementById('resume-view').classList.remove('hidden');
-            document.getElementById('print-btn').classList.remove('opacity-0', 'pointer-events-none');
-        }
+            function openProjectDetails() {
+                document.getElementById('resume-view').classList.add('hidden');
+                document.getElementById('print-btn').classList.add('opacity-0', 'pointer-events-none');
+                document.getElementById('project-view').classList.remove('hidden');
+            }
 
-        function openProjectDetails() {
-            document.getElementById('resume-view').classList.add('hidden');
-            document.getElementById('print-btn').classList.add('opacity-0', 'pointer-events-none');
-            document.getElementById('project-view').classList.remove('hidden');
-        }
+            function backToResumeFromProject() {
+                document.getElementById('project-view').classList.add('hidden');
+                document.getElementById('resume-view').classList.remove('hidden');
+                document.getElementById('print-btn').classList.remove('opacity-0', 'pointer-events-none');
+            }
+            
+            function openClosingProject() {
+                document.getElementById('resume-view').classList.add('hidden');
+                document.getElementById('print-btn').classList.add('opacity-0', 'pointer-events-none');
+                document.getElementById('closing-project-view').classList.remove('hidden');
+            }
 
-        function backToResumeFromProject() {
-            document.getElementById('project-view').classList.add('hidden');
-            document.getElementById('resume-view').classList.remove('hidden');
-            document.getElementById('print-btn').classList.remove('opacity-0', 'pointer-events-none');
-        }
-    </script>
-</body>
-</html>
+            function backToResumeFromClosing() {
+                document.getElementById('closing-project-view').classList.add('hidden');
+                document.getElementById('resume-view').classList.remove('hidden');
+                document.getElementById('print-btn').classList.remove('opacity-0', 'pointer-events-none');
+            }
+        </script>
+    </body>
+    </html>
